@@ -1,0 +1,4330 @@
+
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+    color:#ffffff;
+
+    background:linear-gradient(
+        -45deg,
+        #6A11CB,
+        #2575FC,
+        #00C9FF,
+        #6A11CB
+    );
+
+    background-size:400% 400%;
+
+    animation:bgAnimation 18s ease infinite;
+
+}
+
+
+/* =====================================
+        MODULE 8 LOADING SCREEN
+===================================== */
+
+
+#loader{
+
+position:fixed;
+
+inset:0;
+
+background:
+linear-gradient(
+135deg,
+#6A11CB,
+#2575FC
+);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:10000;
+
+transition:
+opacity .8s ease,
+visibility .8s;
+
+
+}
+
+
+#loader.hide{
+
+opacity:0;
+
+visibility:hidden;
+
+}
+
+
+
+.loader-content{
+
+text-align:center;
+
+color:white;
+
+}
+
+
+
+.loader-content i{
+
+font-size:80px;
+
+color:#FFE600;
+
+animation:
+pulse 1.5s infinite;
+
+}
+
+
+
+.loader-content h2{
+
+font-size:35px;
+
+margin:20px;
+
+}
+
+
+
+.loading-bar{
+
+width:250px;
+
+height:10px;
+
+background:
+rgba(255,255,255,.2);
+
+border-radius:20px;
+
+overflow:hidden;
+
+}
+
+
+
+.loading-bar div{
+
+height:100%;
+
+width:0%;
+
+background:white;
+
+animation:
+loading 2s ease forwards;
+
+}
+
+
+
+@keyframes loading{
+
+to{
+
+width:100%;
+
+}
+
+}
+
+/* ==========================================
+   ANIMATED BACKGROUND
+========================================== */
+
+@keyframes bgAnimation{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:-2;
+
+}
+
+.circle{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    backdrop-filter:blur(10px);
+
+    background:rgba(255,255,255,.10);
+
+    animation:float 18s linear infinite;
+
+}
+
+.c1{
+
+    width:220px;
+    height:220px;
+
+    top:5%;
+    left:8%;
+
+}
+
+.c2{
+
+    width:320px;
+    height:320px;
+
+    right:8%;
+    top:15%;
+
+    animation-duration:22s;
+
+}
+
+.c3{
+
+    width:180px;
+    height:180px;
+
+    left:30%;
+    bottom:10%;
+
+    animation-duration:16s;
+
+}
+
+.c4{
+
+    width:260px;
+    height:260px;
+
+    right:18%;
+    bottom:-60px;
+
+    animation-duration:24s;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0px) rotate(0deg);
+
+}
+
+50%{
+
+transform:translateY(-40px) rotate(180deg);
+
+}
+
+100%{
+
+transform:translateY(0px) rotate(360deg);
+
+}
+
+}
+
+/* ==========================================
+   MAIN APP
+========================================== */
+
+.app{
+
+    width:100%;
+
+    max-width:1400px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:30px;
+
+    padding:35px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+
+    transition:.4s;
+
+}
+
+.app:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 30px 70px rgba(0,0,0,.40);
+
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.logo i{
+
+    font-size:55px;
+
+    color:#FFE600;
+
+    animation:pulse 2s infinite;
+
+}
+
+.logo h1{
+
+    font-size:34px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+}
+
+.logo p{
+
+    font-size:15px;
+
+    opacity:.85;
+
+    margin-top:4px;
+
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.15);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+/* ==========================================
+   HEADER RIGHT
+========================================== */
+
+.header-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.clock{
+
+    text-align:right;
+
+}
+
+#date{
+
+    font-size:15px;
+
+    opacity:.8;
+
+}
+
+#time{
+
+    margin-top:4px;
+
+    font-size:26px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+}
+
+/* ==========================================
+   THEME BUTTON
+========================================== */
+
+#themeBtn{
+
+    width:60px;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:rgba(255,255,255,.18);
+
+    color:white;
+
+    font-size:22px;
+
+    transition:.4s;
+
+}
+
+#themeBtn:hover{
+
+    transform:rotate(180deg) scale(1.08);
+
+    background:white;
+
+    color:#2575FC;
+
+    box-shadow:0 0 25px rgba(255,255,255,.7);
+
+}
+
+/* ==========================================
+   GREETING SECTION
+========================================== */
+
+.greeting{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.greeting h2{
+
+    font-size:38px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+.greeting p{
+
+    font-size:18px;
+
+    opacity:.9;
+
+    font-style:italic;
+
+}
+
+/* ==========================================
+   FADE ANIMATION
+========================================== */
+
+header,
+.greeting{
+
+    animation:fadeUp .8s ease;
+
+}
+
+@keyframes fadeUp{
+
+0%{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+/* ==========================================
+   SEARCH BAR
+========================================== */
+
+.search-section{
+
+    margin-bottom:35px;
+
+}
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.20);
+
+    border-radius:20px;
+
+    padding:16px 22px;
+
+    transition:.4s;
+
+}
+
+.search-box:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+}
+
+.search-box i{
+
+    font-size:20px;
+
+    color:#FFE600;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    color:white;
+
+    font-size:17px;
+
+}
+
+.search-box input::placeholder{
+
+    color:#e6e6e6;
+
+}
+
+/* ==========================================
+   TASK FORM
+========================================== */
+
+.task-form{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr auto;
+
+    gap:18px;
+
+    margin-bottom:40px;
+
+}
+
+.task-form input,
+.task-form select{
+
+    border:none;
+
+    outline:none;
+
+    padding:16px 20px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.18);
+
+    color:white;
+
+    font-size:16px;
+
+    transition:.35s;
+
+}
+
+.task-form input::placeholder{
+
+    color:#ececec;
+
+}
+
+.task-form input:focus,
+.task-form select:focus{
+
+    background:rgba(255,255,255,.28);
+
+    box-shadow:0 0 20px rgba(255,255,255,.20);
+
+}
+
+.task-form select option{
+
+    color:#222;
+
+}
+
+#addTask{
+
+    border:none;
+
+    cursor:pointer;
+
+    border-radius:18px;
+
+    padding:16px 28px;
+
+    background:linear-gradient(135deg,#00E5FF,#2979FF);
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+#addTask::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(255,255,255,.30);
+
+    transform:skewX(-25deg);
+
+    transition:.6s;
+
+}
+
+#addTask:hover::before{
+
+    left:120%;
+
+}
+
+#addTask:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 18px 35px rgba(0,229,255,.40);
+
+}
+
+/* ==========================================
+   DASHBOARD
+========================================== */
+
+.dashboard{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:22px;
+
+    margin-bottom:40px;
+
+}
+
+.card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:28px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.22);
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.10);
+
+    top:-90px;
+
+    right:-90px;
+
+    transition:.5s;
+
+}
+
+.card:hover::before{
+
+    transform:scale(1.4);
+
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.30);
+
+}
+
+.card i{
+
+    font-size:42px;
+
+    margin-bottom:18px;
+
+    transition:.4s;
+
+}
+
+.card:hover i{
+
+    transform:rotate(12deg) scale(1.2);
+
+}
+
+.total i{
+
+    color:#00E5FF;
+
+}
+
+.pending i{
+
+    color:#FFD54F;
+
+}
+
+.completed i{
+
+    color:#69F0AE;
+
+}
+
+.important i{
+
+    color:#FF6B6B;
+
+}
+
+.card h3{
+
+    font-size:34px;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+}
+
+.card p{
+
+    font-size:17px;
+
+    opacity:.9;
+
+}
+
+/* ==========================================
+   PROGRESS CARD
+========================================== */
+
+.progress-card{
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:22px;
+
+    border:1px solid rgba(255,255,255,.20);
+
+    padding:25px;
+
+    margin-bottom:35px;
+
+    transition:.4s;
+
+}
+
+.progress-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+}
+
+.progress-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+
+.progress-head h3{
+
+    font-size:22px;
+
+    font-weight:600;
+
+}
+
+#progressPercent{
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:#FFE600;
+
+}
+
+.progress{
+
+    width:100%;
+
+    height:18px;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.18);
+
+}
+
+#progressFill{
+
+    width:0%;
+
+    height:100%;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        90deg,
+        #00E5FF,
+        #00C853,
+        #76FF03
+    );
+
+    background-size:300% 300%;
+
+    animation:progressMove 5s linear infinite;
+
+    transition:width .6s ease;
+
+}
+
+@keyframes progressMove{
+
+0%{
+
+background-position:0% 50%;
+
+}
+
+50%{
+
+background-position:100% 50%;
+
+}
+
+100%{
+
+background-position:0% 50%;
+
+}
+
+}
+
+/* ==========================================
+   FILTER BUTTONS
+========================================== */
+
+.filters{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-bottom:40px;
+
+}
+
+.filter{
+
+    padding:14px 28px;
+
+    border:none;
+
+    cursor:pointer;
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,.15);
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.filter:hover{
+
+    transform:translateY(-4px);
+
+    background:rgba(255,255,255,.25);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.25);
+
+}
+
+.filter.active{
+
+    background:linear-gradient(135deg,#00E5FF,#2979FF);
+
+    box-shadow:0 10px 25px rgba(0,229,255,.35);
+
+}
+
+/*==================================================
+       TASK CARDS & ACTION BUTTONS
+==================================================*/
+
+/* Main Content */
+
+.main{
+
+    display:grid;
+
+    grid-template-columns:2.3fr 1fr;
+
+    gap:30px;
+
+    margin-top:40px;
+
+}
+
+/*==========================================
+        TASK PANEL
+==========================================*/
+
+.tasks-panel{
+
+    background:rgba(255,255,255,.14);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:25px;
+
+    border:1px solid rgba(255,255,255,.20);
+
+    padding:28px;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.20);
+
+}
+
+.tasks-panel h2{
+
+    font-size:28px;
+
+    margin-bottom:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.tasks-panel h2::before{
+
+    content:"📋";
+
+    font-size:30px;
+
+}
+
+/*==========================================
+            TASK LIST
+==========================================*/
+
+#taskList{
+
+    list-style:none;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+/*==========================================
+            TASK CARD
+==========================================*/
+
+.task{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:22px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    transition:.4s;
+
+    overflow:hidden;
+
+    animation:taskAppear .5s ease;
+
+}
+
+.task::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:6px;
+
+    height:100%;
+
+    background:#00E5FF;
+
+}
+
+.task:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.28);
+
+}
+
+.task:hover::before{
+
+    background:#FFD600;
+
+}
+
+/*==========================================
+            TASK INFO
+==========================================*/
+
+.task-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    flex:1;
+
+}
+
+.task-title{
+
+    font-size:20px;
+
+    font-weight:600;
+
+    color:#fff;
+
+    word-break:break-word;
+
+}
+
+.task-date{
+
+    font-size:14px;
+
+    opacity:.8;
+
+}
+
+.task-priority{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    width:max-content;
+
+    padding:6px 14px;
+
+    border-radius:50px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    margin-top:5px;
+
+}
+
+/* Priority Colors */
+
+.high{
+
+    background:#ff4d4d;
+
+    color:white;
+
+}
+
+.medium{
+
+    background:#ffb300;
+
+    color:white;
+
+}
+
+.low{
+
+    background:#00C853;
+
+    color:white;
+
+}
+
+/*==========================================
+        COMPLETED TASK
+==========================================*/
+
+.task.completed{
+
+    opacity:.7;
+
+    background:rgba(0,200,83,.18);
+
+}
+
+.task.completed::before{
+
+    background:#00C853;
+
+}
+
+.task.completed .task-title{
+
+    text-decoration:line-through;
+
+    color:#d5d5d5;
+
+}
+
+/*==========================================
+          IMPORTANT TASK
+==========================================*/
+
+.task.important{
+
+    border:2px solid #FFD600;
+
+    box-shadow:0 0 20px rgba(255,214,0,.35);
+
+}
+
+.task.important::after{
+
+    content:"⭐";
+
+    position:absolute;
+
+    right:18px;
+
+    top:14px;
+
+    font-size:18px;
+
+}
+
+/*==========================================
+        ACTION BUTTONS
+==========================================*/
+
+.task-actions{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-left:20px;
+
+}
+
+.task-actions button{
+
+    width:46px;
+
+    height:46px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:17px;
+
+    transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+/* Ripple */
+
+.task-actions button::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:0;
+
+    height:0;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.35);
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    transition:.4s;
+
+}
+
+.task-actions button:hover::before{
+
+    width:120px;
+
+    height:120px;
+
+}
+
+/* Complete */
+
+.complete-btn{
+
+    background:#00C853;
+
+}
+
+.complete-btn:hover{
+
+    transform:translateY(-5px) scale(1.12);
+
+    box-shadow:0 0 20px #00C853;
+
+}
+
+/* Edit */
+
+.edit-btn{
+
+    background:#2979FF;
+
+}
+
+.edit-btn:hover{
+
+    transform:rotate(10deg) scale(1.08);
+
+    box-shadow:0 0 20px #2979FF;
+
+}
+
+/* Important */
+
+.star-btn{
+
+    background:#FFA000;
+
+}
+
+.star-btn:hover{
+
+    transform:scale(1.15);
+
+    box-shadow:0 0 20px #FFD600;
+
+}
+
+/* Delete */
+
+.delete-btn{
+
+    background:#F44336;
+
+}
+
+.delete-btn:hover{
+
+    transform:rotate(-10deg) scale(1.1);
+
+    box-shadow:0 0 20px #ff1744;
+
+}
+
+.task-actions button:active{
+
+    transform:scale(.9);
+
+}
+
+/*==========================================
+        EMPTY TASK MESSAGE
+==========================================*/
+
+.empty{
+
+    text-align:center;
+
+    padding:50px;
+
+    opacity:.7;
+
+    font-size:20px;
+
+}
+
+.empty i{
+
+    font-size:70px;
+
+    display:block;
+
+    margin-bottom:20px;
+
+    color:#FFE600;
+
+}
+
+/*==========================================
+        TASK ANIMATION
+==========================================*/
+
+@keyframes taskAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/*==================================================
+      SIDEBAR • FOOTER • FINAL POLISH
+==================================================*/
+
+/* ===============================
+          SIDEBAR
+================================ */
+
+.sidebar{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+/* ===============================
+          WIDGET
+================================ */
+
+.widget{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.14);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.20);
+
+    border-radius:24px;
+
+    padding:25px;
+
+    transition:.4s;
+
+}
+
+.widget::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    right:-90px;
+
+    top:-90px;
+
+    transition:.5s;
+
+}
+
+.widget:hover::before{
+
+    transform:scale(1.5);
+
+}
+
+.widget:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.28);
+
+}
+
+.widget h3{
+
+    font-size:22px;
+
+    margin-bottom:18px;
+
+    color:#fff;
+
+}
+
+.widget p{
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    opacity:.92;
+
+}
+
+/* ===============================
+      PRODUCTIVITY CIRCLE
+================================ */
+
+.productivity-circle{
+
+    width:180px;
+
+    height:180px;
+
+    margin:20px auto;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:36px;
+
+    font-weight:700;
+
+    color:#fff;
+
+    background:conic-gradient(
+        #00E5FF 0deg,
+        #00E676 270deg,
+        rgba(255,255,255,.12) 270deg
+    );
+
+    position:relative;
+
+    animation:rotateCircle 8s linear infinite;
+
+}
+
+.productivity-circle::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:135px;
+
+    height:135px;
+
+    border-radius:50%;
+
+    background:rgba(18,18,18,.35);
+
+    backdrop-filter:blur(12px);
+
+}
+
+.productivity-circle{
+
+    z-index:1;
+
+}
+
+.productivity-circle{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.productivity-circle{
+
+    position:relative;
+
+}
+
+.productivity-circle{
+
+    color:white;
+
+}
+
+.productivity-circle::before{
+
+    content:"75%";
+
+    position:absolute;
+
+    z-index:5;
+
+    font-size:36px;
+
+    font-weight:700;
+
+}
+
+@keyframes rotateCircle{
+
+0%{
+
+transform:rotate(0deg);
+
+}
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+/* ===============================
+        QUICK ACTION BUTTONS
+================================ */
+
+.widget button{
+
+    width:100%;
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:16px;
+
+    border-radius:16px;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    margin-top:15px;
+
+    transition:.35s;
+
+}
+
+#clearCompleted{
+
+    background:linear-gradient(
+    135deg,
+    #00C853,
+    #69F0AE);
+
+}
+
+#clearCompleted:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 30px rgba(0,200,83,.35);
+
+}
+
+#clearAll{
+
+    background:linear-gradient(
+    135deg,
+    #F44336,
+    #FF1744);
+
+}
+
+#clearAll:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 30px rgba(244,67,54,.40);
+
+}
+
+.widget button:active{
+
+    transform:scale(.96);
+
+}
+
+/* ===============================
+          FOOTER
+================================ */
+
+footer{
+
+    margin-top:45px;
+
+    padding-top:25px;
+
+    border-top:1px solid rgba(255,255,255,.18);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+footer p{
+
+    font-size:15px;
+
+    opacity:.85;
+
+}
+
+.social{
+
+    display:flex;
+
+    gap:18px;
+
+}
+
+.social i{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    background:rgba(255,255,255,.12);
+
+    font-size:20px;
+
+    transition:.35s;
+
+}
+
+.social i:hover{
+
+    transform:translateY(-6px) rotate(10deg);
+
+    background:white;
+
+    color:#2575FC;
+
+    box-shadow:0 0 20px rgba(255,255,255,.55);
+
+}
+
+/* ===============================
+        GLOW EFFECT
+================================ */
+
+.card,
+.widget,
+.task{
+
+    position:relative;
+
+}
+
+.card::after,
+.widget::after,
+.task::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:inherit;
+
+    background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.08),
+    transparent);
+
+    transform:translateX(-100%);
+
+}
+
+.card:hover::after,
+.widget:hover::after,
+.task:hover::after{
+
+    animation:shine .9s linear;
+
+}
+
+@keyframes shine{
+
+0%{
+
+transform:translateX(-100%);
+
+}
+
+100%{
+
+transform:translateX(120%);
+
+}
+
+}
+
+/* ===============================
+       FLOATING ANIMATION
+================================ */
+
+.card{
+
+    animation:floatCard 5s ease-in-out infinite;
+
+}
+
+.card:nth-child(2){
+
+    animation-delay:.5s;
+
+}
+
+.card:nth-child(3){
+
+    animation-delay:1s;
+
+}
+
+.card:nth-child(4){
+
+    animation-delay:1.5s;
+
+}
+
+@keyframes floatCard{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-6px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+/* ===============================
+     SCROLLBAR
+================================ */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:rgba(255,255,255,.10);
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#00C9FF;
+
+    border-radius:30px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#2979FF;
+
+}
+
+/* ===============================
+      SELECTION COLOR
+================================ */
+
+::selection{
+
+    background:#00C9FF;
+
+    color:white;
+
+}
+
+/* ===============================
+        SMOOTH EFFECTS
+================================ */
+
+button,
+input,
+select,
+.card,
+.widget,
+.task{
+
+    transition:all .35s ease;
+
+}
+
+/* ===============================
+        APP FADE
+================================ */
+
+.app{
+
+    animation:appFade .8s ease;
+
+}
+
+@keyframes appFade{
+
+0%{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/*==================================================
+            MODULE 2D-1
+      DARK MODE + RESPONSIVE DESIGN
+==================================================*/
+
+/* ===============================
+          DARK MODE
+================================ */
+
+body.dark{
+
+    background:linear-gradient(
+        -45deg,
+        #050816,
+        #0d1117,
+        #161b22,
+        #050816
+    );
+
+    background-size:400% 400%;
+
+    color:#f5f5f5;
+
+}
+
+body.dark .app{
+
+    background:rgba(12,18,30,.75);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(25px);
+
+}
+
+body.dark .card,
+body.dark .widget,
+body.dark .tasks-panel,
+body.dark .progress-card,
+body.dark .search-box,
+body.dark .task{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+body.dark input,
+body.dark select{
+
+    background:rgba(255,255,255,.06);
+
+    color:#fff;
+
+}
+
+body.dark input::placeholder{
+
+    color:#b8c2d1;
+
+}
+
+body.dark .filter{
+
+    background:rgba(255,255,255,.07);
+
+}
+
+body.dark .filter.active{
+
+    background:linear-gradient(135deg,#00c9ff,#2979ff);
+
+}
+
+body.dark #themeBtn{
+
+    background:#FFD54F;
+
+    color:#111;
+
+}
+
+body.dark footer{
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+body.dark .social i{
+
+    background:rgba(255,255,255,.08);
+
+}
+
+body.dark .social i:hover{
+
+    background:#ffffff;
+
+    color:#2979ff;
+
+}
+
+/* ===============================
+      LARGE DESKTOP
+================================ */
+
+@media (min-width:1600px){
+
+.app{
+
+    max-width:1600px;
+
+}
+
+.dashboard{
+
+    grid-template-columns:repeat(4,1fr);
+
+}
+
+}
+
+/* ===============================
+          LAPTOP
+================================ */
+
+@media (max-width:1200px){
+
+.main{
+
+    grid-template-columns:1fr;
+
+}
+
+.sidebar{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+}
+
+.task-form{
+
+    grid-template-columns:1fr 1fr;
+
+}
+
+}
+
+/* ===============================
+          TABLET
+================================ */
+
+@media (max-width:992px){
+
+header{
+
+    flex-direction:column;
+
+    gap:25px;
+
+    text-align:center;
+
+}
+
+.logo{
+
+    justify-content:center;
+
+}
+
+.header-right{
+
+    width:100%;
+
+    justify-content:center;
+
+}
+
+.dashboard{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.task-form{
+
+    grid-template-columns:1fr;
+
+}
+
+.filters{
+
+    justify-content:center;
+
+}
+
+footer{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+}
+
+/* ===============================
+          MOBILE
+================================ */
+
+@media (max-width:768px){
+
+body{
+
+    padding:20px;
+
+}
+
+.app{
+
+    padding:20px;
+
+    border-radius:20px;
+
+}
+
+.logo h1{
+
+    font-size:26px;
+
+}
+
+.logo p{
+
+    font-size:13px;
+
+}
+
+.greeting h2{
+
+    font-size:28px;
+
+}
+
+.greeting p{
+
+    font-size:15px;
+
+}
+
+.dashboard{
+
+    grid-template-columns:1fr;
+
+}
+
+.card{
+
+    padding:22px;
+
+}
+
+.progress-head{
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.task{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:18px;
+
+}
+
+.task-actions{
+
+    width:100%;
+
+    justify-content:flex-end;
+
+}
+
+.productivity-circle{
+
+    width:150px;
+
+    height:150px;
+
+}
+
+.productivity-circle::after{
+
+    width:110px;
+
+    height:110px;
+
+}
+
+}
+
+/* ===============================
+        SMALL MOBILE
+================================ */
+
+@media (max-width:480px){
+
+body{
+
+    padding:10px;
+
+}
+
+.app{
+
+    padding:15px;
+
+}
+
+.logo{
+
+    flex-direction:column;
+
+}
+
+.logo i{
+
+    font-size:42px;
+
+}
+
+.logo h1{
+
+    font-size:22px;
+
+}
+
+#time{
+
+    font-size:20px;
+
+}
+
+.search-box{
+
+    padding:14px;
+
+}
+
+.task-form input,
+.task-form select,
+.task-form button{
+
+    font-size:14px;
+
+    padding:14px;
+
+}
+
+.card h3{
+
+    font-size:28px;
+
+}
+
+.card p{
+
+    font-size:14px;
+
+}
+
+.task-title{
+
+    font-size:17px;
+
+}
+
+.task-actions{
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+}
+
+.task-actions button{
+
+    width:42px;
+
+    height:42px;
+
+}
+
+.social{
+
+    justify-content:center;
+
+    width:100%;
+
+}
+
+}
+
+/* ===============================
+      HOVER ANIMATIONS
+================================ */
+
+button:hover{
+
+    transition:.35s ease;
+
+}
+
+input:focus,
+select:focus{
+
+    transform:scale(1.02);
+
+}
+
+.card:hover{
+
+    transition:.4s;
+
+}
+
+.widget:hover{
+
+    transition:.4s;
+
+}
+
+.task:hover{
+
+    transition:.35s;
+
+}
+
+/* ===============================
+       SMOOTH SCROLL
+================================ */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+/*=====================================================
+      PREMIUM ANIMATIONS & HOVER EFFECTS
+======================================================*/
+
+/* ---------- Fade In ---------- */
+
+.fade-in{
+    animation:fadeIn .8s ease forwards;
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    100%{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ---------- Slide Up ---------- */
+
+.slide-up{
+    animation:slideUp .7s ease;
+}
+
+@keyframes slideUp{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ---------- Zoom ---------- */
+
+.zoom{
+    animation:zoom .5s ease;
+}
+
+@keyframes zoom{
+    from{
+        transform:scale(.8);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+/* ---------- Floating ---------- */
+
+.float{
+    animation:floating 4s ease-in-out infinite;
+}
+
+@keyframes floating{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+
+/* ---------- Glow ---------- */
+
+.glow{
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        box-shadow:0 0 15px rgba(0,229,255,.3);
+    }
+    to{
+        box-shadow:
+        0 0 35px rgba(0,229,255,.8),
+        0 0 60px rgba(0,229,255,.5);
+    }
+}
+
+/* ---------- Button Hover ---------- */
+
+button{
+    position:relative;
+    overflow:hidden;
+}
+
+button::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    width:0;
+
+    height:0;
+
+    background:rgba(255,255,255,.25);
+
+    border-radius:50%;
+
+    transform:translate(-50%,-50%);
+
+    transition:.5s;
+
+}
+
+button:hover::after{
+
+    width:260px;
+
+    height:260px;
+
+}
+
+button:hover{
+
+    transform:translateY(-5px) scale(1.04);
+
+}
+
+button:active{
+
+    transform:scale(.95);
+
+}
+
+/* ---------- Dashboard Cards ---------- */
+
+.card{
+
+    transition:.4s ease;
+
+}
+
+.card:hover{
+
+    transform:
+        translateY(-12px)
+        rotateX(6deg)
+        rotateY(-6deg);
+
+    box-shadow:
+        0 25px 55px rgba(0,0,0,.30);
+
+}
+
+/* ---------- Task Hover ---------- */
+
+.task{
+
+    cursor:pointer;
+
+}
+
+.task:hover{
+
+    transform:translateX(10px);
+
+}
+
+/* ---------- Sidebar Widgets ---------- */
+
+.widget{
+
+    transition:.45s;
+
+}
+
+.widget:hover{
+
+    transform:
+        scale(1.03)
+        rotate(.5deg);
+
+}
+
+/* ---------- Inputs ---------- */
+
+input,
+select{
+
+    transition:.35s;
+
+}
+
+input:focus,
+select:focus{
+
+    transform:scale(1.02);
+
+    box-shadow:
+        0 0 20px rgba(0,201,255,.45);
+
+}
+
+/* ---------- Social Icons ---------- */
+
+.social i{
+
+    transition:.4s;
+
+}
+
+.social i:hover{
+
+    transform:
+        translateY(-8px)
+        rotate(360deg);
+
+}
+
+/* ---------- Progress Bar ---------- */
+
+#progressFill{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+#progressFill::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:40%;
+
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.5),
+        transparent);
+
+    animation:shineBar 2s infinite;
+
+}
+
+@keyframes shineBar{
+
+    from{
+
+        left:-40%;
+
+    }
+
+    to{
+
+        left:120%;
+
+    }
+
+}
+
+/* ---------- Pulse Ring ---------- */
+
+.pulse{
+
+    position:relative;
+
+}
+
+.pulse::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-8px;
+
+    border-radius:inherit;
+
+    border:2px solid rgba(255,255,255,.4);
+
+    animation:pulseRing 2s infinite;
+
+}
+
+@keyframes pulseRing{
+
+    0%{
+
+        transform:scale(.8);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:scale(1.6);
+
+        opacity:0;
+
+    }
+
+}
+
+/* ---------- Rotation ---------- */
+
+.rotate{
+
+    animation:rotate360 8s linear infinite;
+
+}
+
+@keyframes rotate360{
+
+    from{
+
+        transform:rotate(0);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* ---------- Bounce ---------- */
+
+.bounce:hover{
+
+    animation:bounce .6s;
+
+}
+
+@keyframes bounce{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+}
+
+/* ---------- Gradient Text ---------- */
+
+.gradient-text{
+
+    background:linear-gradient(
+        90deg,
+        #00E5FF,
+        #00C853,
+        #FFD600);
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+    background-size:300%;
+
+    animation:textGradient 5s linear infinite;
+
+}
+
+@keyframes textGradient{
+
+    from{
+
+        background-position:0%;
+
+    }
+
+    to{
+
+        background-position:300%;
+
+    }
+
+}
+
+/*==================================================
+    CUSTOM SCROLLBAR & FINAL UI POLISH
+==================================================*/
+
+/* ===============================
+        PREMIUM SCROLLBAR
+================================ */
+
+html{
+    scroll-behavior:smooth;
+}
+
+::-webkit-scrollbar{
+    width:12px;
+    height:12px;
+}
+
+::-webkit-scrollbar-track{
+    background:rgba(255,255,255,.08);
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(
+        180deg,
+        #00E5FF,
+        #2979FF,
+        #6A11CB
+    );
+    border-radius:20px;
+    border:2px solid transparent;
+    background-clip:padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:linear-gradient(
+        180deg,
+        #FFD600,
+        #FF9800
+    );
+}
+
+::-webkit-scrollbar-corner{
+    background:transparent;
+}
+
+/* ===============================
+        TEXT SELECTION
+================================ */
+
+::selection{
+    background:#00C9FF;
+    color:#fff;
+}
+
+/* ===============================
+        IMAGE SETTINGS
+================================ */
+
+img{
+    max-width:100%;
+    display:block;
+    user-select:none;
+}
+
+/* ===============================
+        ICON ANIMATION
+================================ */
+
+.logo i,
+.social i,
+.card i{
+
+    transition:.4s;
+
+}
+
+.logo:hover i{
+
+    transform:rotate(360deg);
+
+}
+
+.card:hover i{
+
+    transform:scale(1.2);
+
+}
+
+.social:hover i{
+
+    opacity:.8;
+
+}
+
+/* ===============================
+        CARD SHADOW
+================================ */
+
+.card,
+.widget,
+.task,
+.progress-card,
+.search-box{
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.15);
+
+}
+
+.card:hover,
+.widget:hover,
+.task:hover{
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.35);
+
+}
+
+/* ===============================
+        BUTTON SHINE
+================================ */
+
+button{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+button span{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+button::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:100%;
+
+    height:100%;
+
+    background:
+
+    linear-gradient(
+
+    120deg,
+
+    transparent,
+
+    rgba(255,255,255,.45),
+
+    transparent);
+
+    transition:.8s;
+
+}
+
+button:hover::before{
+
+    left:120%;
+
+}
+
+/* ===============================
+        GLASS BORDER
+================================ */
+
+.card,
+.widget,
+.task,
+.progress-card,
+.search-box{
+
+    border:
+
+    1px solid rgba(255,255,255,.18);
+
+}
+
+/* ===============================
+        INPUT POLISH
+================================ */
+
+input,
+select{
+
+    caret-color:#00E5FF;
+
+}
+
+input:hover,
+select:hover{
+
+    border-color:#00E5FF;
+
+}
+
+/* ===============================
+        LIST SCROLL
+================================ */
+
+#taskList{
+
+    max-height:600px;
+
+    overflow-y:auto;
+
+    padding-right:8px;
+
+}
+
+/* ===============================
+        EMPTY STATE
+================================ */
+
+.empty{
+
+    text-align:center;
+
+    padding:60px 20px;
+
+    opacity:.75;
+
+}
+
+.empty h2{
+
+    margin-top:20px;
+
+    font-size:26px;
+
+}
+
+.empty p{
+
+    margin-top:10px;
+
+    font-size:15px;
+
+}
+
+/* ===============================
+        FOOTER POLISH
+================================ */
+
+footer{
+
+    position:relative;
+
+}
+
+footer::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-1px;
+
+    left:0;
+
+    width:100%;
+
+    height:1px;
+
+    background:
+
+    linear-gradient(
+
+    90deg,
+
+    transparent,
+
+    rgba(255,255,255,.6),
+
+    transparent);
+
+}
+
+/* ===============================
+        LOADER
+================================ */
+
+.loader{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    border:6px solid rgba(255,255,255,.15);
+
+    border-top:6px solid #00E5FF;
+
+    animation:spin 1s linear infinite;
+
+    margin:auto;
+
+}
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* ===============================
+        NOTIFICATION
+================================ */
+
+.toast{
+
+    position:fixed;
+
+    top:25px;
+
+    right:25px;
+
+    padding:18px 25px;
+
+    border-radius:18px;
+
+    background:rgba(0,0,0,.75);
+
+    color:#fff;
+
+    backdrop-filter:blur(20px);
+
+    transform:translateX(400px);
+
+    transition:.5s;
+
+    z-index:999;
+
+}
+
+.toast.show{
+
+    transform:translateX(0);
+
+}
+
+/* ===============================
+        SCALE EFFECT
+================================ */
+
+.scale{
+
+    transition:.35s;
+
+}
+
+.scale:hover{
+
+    transform:scale(1.05);
+
+}
+
+/* ===============================
+        OPACITY EFFECT
+================================ */
+
+.fade{
+
+    opacity:.85;
+
+}
+
+.fade:hover{
+
+    opacity:1;
+
+}
+
+/* ===============================
+        FINAL TRANSITIONS
+================================ */
+
+*{
+
+    transition:
+        background .3s,
+        color .3s,
+        border .3s,
+        transform .3s,
+        box-shadow .3s;
+
+}
+
+/* ==================================
+     MODULE 4 ANALYTICS
+================================== */
+
+
+.analytics{
+
+    display:grid;
+    
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+    
+    gap:25px;
+    
+    margin:40px 0;
+    
+    }
+    
+    
+    
+    .analytics-card{
+    
+    background:
+    rgba(255,255,255,.15);
+    
+    backdrop-filter:
+    blur(20px);
+    
+    border:
+    1px solid rgba(255,255,255,.20);
+    
+    border-radius:25px;
+    
+    padding:30px;
+    
+    text-align:center;
+    
+    transition:.4s;
+    
+    }
+    
+    
+    
+    .analytics-card:hover{
+    
+    transform:
+    translateY(-10px);
+    
+    box-shadow:
+    0 25px 50px rgba(0,0,0,.3);
+    
+    }
+    
+    
+    
+    .analytics-card i{
+    
+    font-size:45px;
+    
+    color:#FFE600;
+    
+    margin-bottom:20px;
+    
+    }
+    
+    
+    
+    .analytics-card h3{
+    
+    font-size:20px;
+    
+    }
+    
+    
+    
+    .analytics-card h2{
+    
+    font-size:45px;
+    
+    margin-top:15px;
+    
+    color:#00E5FF;
+    
+    }
+    
+    
+    
+    .chart-card{
+    
+    grid-column:span 2;
+    
+    }
+    
+    
+    #weeklyChart{
+    
+    max-height:300px;
+    
+    }
+    
+    
+    
+    @media(max-width:768px){
+    
+    .chart-card{
+    
+    grid-column:span 1;
+    
+    }
+    
+    }
+
+    /* ===============================
+      THEME SELECTOR
+================================ */
+
+
+.theme-control{
+
+    display:flex;
+    
+    gap:15px;
+    
+    align-items:center;
+    
+    }
+    
+    
+    #themeSelector{
+    
+    padding:12px;
+    
+    border-radius:15px;
+    
+    border:none;
+    
+    background:
+    rgba(255,255,255,.15);
+    
+    color:white;
+    
+    outline:none;
+    
+    }
+    
+    
+    #themeSelector option{
+    
+    color:#222;
+    
+    }
+
+
+    /* ===============================
+        EXTRA THEMES
+================================ */
+
+
+body.midnight{
+
+    background:
+    linear-gradient(
+    135deg,
+    #020024,
+    #090979,
+    #00d4ff
+    );
+    
+    }
+    
+    
+    
+    body.forest{
+    
+    background:
+    linear-gradient(
+    135deg,
+    #134E5E,
+    #71B280
+    );
+    
+    }
+    
+    
+    
+    body.sunset{
+    
+    background:
+    linear-gradient(
+    135deg,
+    #ff512f,
+    #dd2476
+    );
+    
+    }
+
+/* =================================
+     MODULE 7 GAMIFICATION
+================================= */
+
+
+.gamification{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+
+gap:25px;
+
+margin:40px 0;
+
+}
+
+
+
+.level-card,
+.badge-card{
+
+background:
+rgba(255,255,255,.15);
+
+backdrop-filter:
+blur(20px);
+
+border-radius:25px;
+
+padding:30px;
+
+text-align:center;
+
+border:
+1px solid rgba(255,255,255,.2);
+
+}
+
+
+
+.level-card i{
+
+font-size:50px;
+
+color:#FFD600;
+
+}
+
+
+
+.level-card h2{
+
+font-size:40px;
+
+margin:15px;
+
+color:#00E5FF;
+
+}
+
+
+
+#badges{
+
+display:flex;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+gap:15px;
+
+}
+
+
+
+.badge{
+
+padding:12px 18px;
+
+border-radius:50px;
+
+background:
+linear-gradient(
+135deg,
+#FFD600,
+#FF9800
+);
+
+color:#222;
+
+font-weight:700;
+
+animation:
+badgePop .5s ease;
+
+}
+
+
+
+@keyframes badgePop{
+
+0%{
+
+transform:scale(0);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+
+/* POPUP */
+
+
+#achievementPopup{
+
+position:fixed;
+
+top:50%;
+
+left:50%;
+
+transform:
+translate(-50%,-50%)
+scale(0);
+
+z-index:9999;
+
+transition:.5s;
+
+}
+
+
+
+#achievementPopup.show{
+
+transform:
+translate(-50%,-50%)
+scale(1);
+
+}
+
+
+
+.popup-box{
+
+background:
+rgba(0,0,0,.8);
+
+padding:40px;
+
+border-radius:30px;
+
+text-align:center;
+
+color:white;
+
+backdrop-filter:blur(20px);
+
+}
+
+
+
+.popup-box i{
+
+font-size:70px;
+
+color:#FFD600;
+
+}
+
+/* ACCESSIBILITY */
+
+
+button:focus,
+input:focus,
+select:focus{
+
+outline:
+
+3px solid #00E5FF;
+
+outline-offset:3px;
+
+}
+
+@media(max-width:600px){
+
+
+header{
+
+position:relative;
+
+}
+
+
+.header-right{
+
+flex-direction:column;
+
+}
+
+
+
+.task-actions button{
+
+width:38px;
+
+height:38px;
+
+}
+
+
+
+.dashboard{
+
+gap:15px;
+
+}
+
+
+
+.analytics{
+
+grid-template-columns:1fr;
+
+}
+
+
+
+.greeting h2{
+
+font-size:24px;
+
+}
+
+
+
+#taskList{
+
+max-height:none;
+
+}
+
+
+
+}
+
+
+.completed-animation{
+
+animation:
+complete .7s ease;
+
+}
+
+
+
+@keyframes complete{
+
+
+0%{
+
+transform:scale(1);
+
+}
+
+
+50%{
+
+transform:scale(1.08);
+
+}
+
+
+100%{
+
+transform:scale(1);
+
+}
+
+
+}
+
+#loader.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+}
+
+
+#loader{
+
+position:fixed;
+
+inset:0;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:99999;
+
+}
+
+/* ===============================
+      BACKUP BUTTON COLORS
+================================ */
+
+
+#exportTasks{
+
+background:
+linear-gradient(
+135deg,
+#00c853,
+#69f0ae
+);
+
+}
+
+
+
+#importBtn{
+
+background:
+linear-gradient(
+135deg,
+#2979ff,
+#00e5ff
+);
+
+}
+
+
+
+#exportTasks:hover,
+#importBtn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:
+0 15px 30px rgba(0,0,0,.25);
+
+}
+
+/* ==============================
+   TODAY'S TASK CARD DESIGN
+============================== */
+
+#taskList li.task {
+
+    background: rgba(255,255,255,0.85);
+
+    border-radius: 18px;
+
+    padding: 18px 20px;
+
+    margin: 15px 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+
+    transition: 0.3s ease;
+
+}
+
+
+#taskList li.task:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+
+}
+
+
+
+/* Dark mode task background */
+
+body.dark #taskList li.task,
+body.midnight #taskList li.task {
+
+    background: rgba(40,40,50,0.9);
+
+    color:white;
+
+}
+
+
+
+/* ==============================
+      TASK BUTTONS
+============================== */
+
+
+.task-actions {
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+
+.task-actions button {
+
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:50%;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:0.3s ease;
+
+}
+
+
+
+/* Complete button */
+
+.complete-btn {
+
+    background:#22c55e;
+
+    color:white;
+
+}
+
+
+
+/* Edit button */
+
+.edit-btn {
+
+    background:#3b82f6;
+
+    color:white;
+
+}
+
+
+
+/* Delete button */
+
+.delete-btn {
+
+    background:#ef4444;
+
+    color:white;
+
+}
+
+
+
+/* Star button */
+
+.star-btn {
+
+    background:#f59e0b;
+
+    color:white;
+
+}
+
+
+
+/* Hover effect */
+
+.task-actions button:hover {
+
+
+    transform:scale(1.15);
+
+}
+
+
+
+/* Completed task */
+
+.task.completed {
+
+
+    opacity:0.75;
+
+    background:#dcfce7 !important;
+
+}
+
+
+
+.task.completed .task-title {
+
+
+    text-decoration:line-through;
+
+}
+
+
+
+/* Mobile view */
+
+@media(max-width:600px){
+
+
+#taskList li.task{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+}
+
+
+.task-actions{
+
+    width:100%;
+
+    justify-content:flex-end;
+
+}
+
+
+}
+
+/* ==========================
+   FINAL TASK CARD FIX
+========================== */
+
+ul#taskList{
+    padding:0;
+}
+
+
+ul#taskList li.task{
+
+    list-style:none;
+
+    background:#ffffff;
+
+    color:#333;
+
+    padding:20px;
+
+    margin:15px 0;
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+}
+
+
+
+/* TASK BUTTON AREA */
+
+.task-actions{
+
+    display:flex !important;
+
+    gap:15px;
+
+}
+
+
+
+/* ALL BUTTONS */
+
+.task-actions button{
+
+    width:50px !important;
+
+    height:50px !important;
+
+    display:flex !important;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:none;
+
+    font-size:24px !important;
+
+    cursor:pointer;
+
+}
+
+
+
+/* COLORS */
+
+.complete-btn{
+
+    background:#22c55e !important;
+
+    color:white;
+
+}
+
+
+.edit-btn{
+
+    background:#2563eb !important;
+
+    color:white;
+
+}
+
+
+.star-btn{
+
+    background:#f59e0b !important;
+
+    color:white;
+
+}
+
+
+.delete-btn{
+
+    background:#ef4444 !important;
+
+    color:white;
+
+}
+
+
+
+/* BUTTON HOVER */
+
+.task-actions button:hover{
+
+    transform:scale(1.15);
+
+}
+
+
+
+/* TASK TITLE */
+
+.task-title{
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+
+
+/* COMPLETED */
+
+.task.completed{
+
+    background:#dcfce7 !important;
+
+}
+
+
+
+.task.completed .task-title{
+
+    text-decoration:line-through;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.task{
+
+    flex-direction:column;
+
+}
+
+
+.task-actions{
+
+    width:100%;
+
+    justify-content:center;
+
+}
+
+}
+
+.priority-tag{
+
+padding:5px 12px;
+
+border-radius:20px;
+
+background:#eee;
+
+font-weight:600;
+
+display:inline-block;
+
+margin-top:8px;
+
+}
+
+/* ===============================
+   TASK ACTION BUTTON SIZE FIX
+================================ */
+
+#taskList .task-actions button {
+
+    width: 55px !important;
+
+    height: 55px !important;
+
+    min-width: 55px !important;
+
+    min-height: 55px !important;
+
+    border-radius: 50% !important;
+
+    font-size: 28px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    padding: 0 !important;
+
+    cursor: pointer;
+
+    border: none;
+
+}
+
+
+/* Individual colors */
+
+#taskList .complete-btn {
+
+    background: #22c55e !important;
+
+    color: white !important;
+
+}
+
+
+#taskList .edit-btn {
+
+    background: #2563eb !important;
+
+    color: white !important;
+
+}
+
+
+#taskList .delete-btn {
+
+    background: #ef4444 !important;
+
+    color: white !important;
+
+}
+
+
+
+/* Hover animation */
+
+#taskList .task-actions button:hover {
+
+    transform: scale(1.2);
+
+}

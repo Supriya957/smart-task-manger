@@ -1,0 +1,857 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Task Manager</title>
+
+<meta name="description"
+content="Smart Task Manager - Organize tasks, track productivity and achieve goals.">
+
+<meta name="theme-color" content="#2575FC">
+
+
+<link rel="stylesheet" href="style.css">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= LOADER ================= -->
+
+<div id="loader">
+
+<div class="loader-content">
+
+<i class="fa-solid fa-list-check"></i>
+
+<h2>
+Smart Task Manager
+</h2>
+
+<p>
+Organizing your productivity...
+</p>
+
+
+<div class="loading-bar">
+
+<div></div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<div class="background">
+
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+<div class="circle c3"></div>
+<div class="circle c4"></div>
+
+</div>
+
+
+
+<div class="app">
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+
+<div class="logo">
+
+<i class="fa-solid fa-list-check"></i>
+
+
+<div>
+
+<h1>
+Smart Task Manager
+</h1>
+
+<p>
+Organize Your Life Beautifully
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+<div class="header-right">
+
+
+<div class="clock">
+
+<div id="date"></div>
+
+<div id="time"></div>
+
+</div>
+
+
+
+<div class="theme-control">
+
+
+<select id="themeSelector"
+aria-label="Choose theme">
+
+
+<option value="default">
+Default
+</option>
+
+
+<option value="dark">
+Dark
+</option>
+
+
+<option value="midnight">
+Midnight
+</option>
+
+
+<option value="forest">
+Forest
+</option>
+
+
+<option value="sunset">
+Sunset
+</option>
+
+
+</select>
+
+
+
+<button id="themeBtn"
+aria-label="Toggle dark mode">
+
+<i class="fa-solid fa-moon"></i>
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</header>
+
+
+
+
+<div id="notification"
+aria-live="polite">
+</div>
+
+
+
+<!-- ================= GREETING ================= -->
+
+
+<section class="greeting">
+
+
+<h2 id="greeting">
+
+Good Evening 👋
+
+</h2>
+
+
+<p id="quote">
+
+Small progress every day leads to big results.
+
+</p>
+
+
+</section>
+
+
+
+
+
+<!-- ================= SEARCH ================= -->
+
+
+<section class="search-section">
+
+
+<label for="searchInput">
+Search Tasks
+</label>
+
+
+<div class="search-box">
+
+
+<i class="fa-solid fa-search"></i>
+
+
+<input
+
+type="text"
+
+id="searchInput"
+
+autocomplete="off"
+
+placeholder="Search your tasks...">
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- ================= ADD TASK ================= -->
+
+
+<section class="task-form">
+
+
+
+
+
+<input
+
+type="text"
+
+id="taskInput"
+
+autocomplete="off"
+
+placeholder="What would you like to accomplish today?">
+
+
+
+
+
+
+<select id="priority">
+
+    <option>
+        Sort Priorty
+        </option>
+
+
+<option>
+High
+</option>
+
+
+<option>
+Medium
+</option>
+
+
+<option>
+Low
+</option>
+
+
+</select>
+
+
+
+
+
+
+<input
+
+type="date"
+
+id="dueDate">
+
+
+
+<button
+
+id="addTask"
+
+aria-label="Add new task">
+
+
+<i class="fa-solid fa-plus"></i>
+
+Add Task
+
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+<!-- ================= ANALYTICS ================= -->
+
+
+<section class="analytics">
+
+
+
+<div class="analytics-card">
+
+
+<i class="fa-solid fa-fire"></i>
+
+
+<h3>
+Productivity Score
+</h3>
+
+
+<h2 id="productivityScore">
+
+0%
+
+</h2>
+
+
+</div>
+
+
+
+
+
+<div class="analytics-card">
+
+
+<i class="fa-solid fa-trophy"></i>
+
+
+<h3>
+Completion Streak
+</h3>
+
+
+<h2 id="taskStreak">
+
+0 Days
+
+</h2>
+
+
+</div>
+
+
+
+
+
+<div class="analytics-card chart-card">
+
+
+<h3>
+Weekly Progress
+</h3>
+
+
+<canvas id="weeklyChart"
+height="180">
+</canvas>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- ================= GAMIFICATION ================= -->
+
+
+<section class="gamification">
+
+
+<div class="level-card">
+
+
+<i class="fa-solid fa-crown"></i>
+
+
+<h3>
+Current Level
+</h3>
+
+
+<h2 id="userLevel">
+
+Beginner
+
+</h2>
+
+
+<p>
+
+XP:
+
+<span id="userXP">
+
+0
+
+</span>
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="badge-card">
+
+
+<h3>
+Achievements
+</h3>
+
+
+<div id="badges">
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- ================= DASHBOARD ================= -->
+
+
+<section class="dashboard">
+
+
+<div class="card">
+
+<i class="fa-solid fa-list"></i>
+
+<h3 id="totalTasks">
+0
+</h3>
+
+<p>
+Total Tasks
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<i class="fa-solid fa-hourglass-half"></i>
+
+<h3 id="pendingTasks">
+0
+</h3>
+
+<p>
+Pending
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<i class="fa-solid fa-circle-check"></i>
+
+<h3 id="completedTasks">
+0
+</h3>
+
+<p>
+Completed
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<i class="fa-solid fa-star"></i>
+
+<h3 id="importantTasks">
+0
+</h3>
+
+<p>
+Important
+</p>
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+<!-- ================= PROGRESS ================= -->
+
+
+<section class="progress-card">
+
+
+<div class="progress-head">
+
+
+<h3>
+Today's Progress
+</h3>
+
+
+<span id="progressPercent">
+0%
+</span>
+
+
+</div>
+
+
+
+<div class="progress">
+
+
+<div id="progressFill">
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- ================= FILTERS ================= -->
+
+
+<section class="filters">
+
+
+<button class="filter active">
+All
+</button>
+
+
+<button class="filter">
+Pending
+</button>
+
+
+<button class="filter">
+Completed
+</button>
+
+
+<button class="filter">
+Important
+</button>
+
+
+<button class="filter">
+Today
+</button>
+
+
+<button class="filter">
+Overdue
+</button>
+
+
+</section>
+
+
+
+
+
+<!-- ================= MAIN ================= -->
+
+
+<div class="main">
+
+
+
+<div class="tasks-panel">
+
+
+<h2>
+Today's Tasks
+</h2>
+
+
+<ul id="taskList">
+
+</ul>
+
+
+</div>
+
+
+
+
+
+<!-- SIDEBAR -->
+
+
+<div class="sidebar">
+
+
+
+<div class="widget">
+
+
+<h3>
+Today's Goal
+</h3>
+
+
+<p>
+Finish all planned work before 8 PM.
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="widget">
+
+
+<h3>
+Productivity
+</h3>
+
+
+<div class="productivity-circle">
+
+<span id="productivityCircle">
+0%
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="widget">
+
+
+<h3>
+Quick Actions
+</h3>
+
+
+
+<button id="exportTasks">
+Export Backup
+</button>
+
+
+
+<input
+
+type="file"
+
+id="importTasks"
+
+accept=".json"
+
+hidden>
+
+
+
+<button id="importBtn">
+
+Import Backup
+
+</button>
+
+
+
+<button id="clearCompleted">
+
+Clear Completed
+
+</button>
+
+
+
+<button id="clearAll">
+
+Delete All
+
+</button>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<!-- ================= ACHIEVEMENT POPUP ================= -->
+
+
+<div id="achievementPopup">
+
+
+<div class="popup-box">
+
+
+<i class="fa-solid fa-trophy"></i>
+
+
+<h2 id="popupTitle">
+
+Achievement Unlocked!
+
+</h2>
+
+
+<p id="popupMessage">
+
+Great job!
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!-- ================= FOOTER ================= -->
+
+
+<footer>
+
+
+<p>
+Smart Task Manager v1.0 🚀
+</p>
+
+
+<div class="social">
+
+<i class="fab fa-github"></i>
+
+<i class="fab fa-linkedin"></i>
+
+<i class="fab fa-instagram"></i>
+
+
+</div>
+
+
+</footer>
+
+
+
+</div>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script>
+
+<script>
+
+window.onload=function(){
+
+document.getElementById("loader")
+.classList.add("hide");
+
+}
+
+</script>
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
+
